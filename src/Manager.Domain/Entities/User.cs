@@ -48,7 +48,7 @@ namespace Manager.Domain.Entities
             {
                 foreach (var erro in validate.Errors)
                     _errors.Add(erro.ErrorMessage);
-                
+
                 throw new Exception("Alguns campos estão inválidos");
             }
 

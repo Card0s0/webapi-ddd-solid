@@ -56,7 +56,7 @@ namespace Manager.Domain.Validators
                 .Matches(@"/^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i")
                 .WithMessage("Email no formato inválido");
 
-             
+
 
         }
 
