@@ -1,6 +1,7 @@
-﻿using Manager.Domain.Validators;
+﻿using Manager.Domain.Exceptions;
+using Manager.Domain.Validators;
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 
 namespace Manager.Domain.Entities
 {
@@ -49,7 +50,7 @@ namespace Manager.Domain.Entities
                 foreach (var erro in validate.Errors)
                     _errors.Add(erro.ErrorMessage);
 
-                throw new Exception("Alguns campos estão inválidos");
+                throw new DomainException("Alguns campos estão inválidos",_errors);
             }
 
             return true;
