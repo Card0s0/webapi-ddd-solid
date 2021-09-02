@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Manager.Domain.Entities;
 using Manager.Domain.Exceptions;
+using Manager.Infra.Data.Interface;
 using Manager.Infra.Data.Repository;
 using Manager.Services.DTO;
 using Manager.Services.Interface;
@@ -15,9 +16,9 @@ namespace Manager.Services.Services
     public class UserService : IUserService
     {
         private readonly IMapper _mapper;
-        private readonly UserRepository _repository;
+        private readonly IUserRepository _repository;
 
-        public UserService(IMapper mapper, UserRepository repository)
+        public UserService(IMapper mapper, IUserRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
@@ -25,7 +26,7 @@ namespace Manager.Services.Services
 
         public async Task<UserDTO> Create(UserDTO obj)
         {
-            var userExist = _repository.GetByEmail(obj.Name);
+            var userExist = await _repository.GetByEmail(obj.Email);
 
             if (userExist != null)
             {
@@ -44,7 +45,7 @@ namespace Manager.Services.Services
         {
             var userExist = await _repository.Get(id);
 
-            if (userExist != null)
+            if (userExist == null)
                 throw new DomainException("Usuário não existe na base de dados");
 
             await _repository.Remove(id);
@@ -54,7 +55,7 @@ namespace Manager.Services.Services
         {
             var userExist = await _repository.Get(obj.Id);
 
-            if (userExist != null)
+            if (userExist == null)
                 throw new DomainException("Usuário não existe na base de dados");
 
             var userMap = _mapper.Map<User>(obj);

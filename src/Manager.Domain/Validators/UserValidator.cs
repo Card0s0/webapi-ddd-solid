@@ -53,7 +53,7 @@ namespace Manager.Domain.Validators
                 .MaximumLength(180)
                 .WithMessage("Limite do tamanho máximo do email 180")
 
-                .Matches(@"/^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i")
+                .Matches(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")
                 .WithMessage("Email no formato inválido");
 
 
