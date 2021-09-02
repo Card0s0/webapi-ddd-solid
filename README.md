@@ -11,10 +11,21 @@ Exemplo de WebApi utilizando:
 * [X] - Criação das Camadas;
 
 ### Application
-
+* [x] - Implementado o Controller da entidade User;
+* [x] - Configurada a Injeção de Dependencia das classes;
+* [x] - Implementado os ViewModel;
+* [x] - Implementado os Métodos:
+* [x] - - Create;
+* [x] - - Update;
+* [x] - - Delete;
+* [x] - - GetAll;
+* [x] - - Get;
+* [ ] - - GetByEmail;
+* [ ] - - GetByName;
+* [ ] - - SearchByEmail;
 ### Domain:
 * [x] - Implementação do FluenteValidator;
-* [x] - Criação do Dominio Rico
+* [x] - Criação do Dominio Rico;
 * [x] - Criação da Classe Validator;
 * [x] - Criação do DomainException;
 
