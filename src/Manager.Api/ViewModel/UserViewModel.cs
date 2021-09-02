@@ -8,8 +8,8 @@ namespace Manager.Api.ViewModel
 {
     public class UserViewModel : CreateUserViewModel
     {
-        [Required(ErrorMessage ="ID Não pode ser nulo")]
-        [MinLength(1,ErrorMessage = "ID tem que ser maior que 0")]
+        [Required(ErrorMessage = "O ID não pode ser vazio")]
+        [Range(1,int.MaxValue,ErrorMessage ="O ID Nao pode ser zero")]
         public long Id { get; set; }
     }
 }

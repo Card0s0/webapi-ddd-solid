@@ -182,7 +182,114 @@ namespace Manager.Api.Controllers
             }
         }
 
-        
+        [HttpGet]
+        [Route("get-by-email/{email}")]
+        public async Task<IActionResult> GetByEmail(string email)
+        {
+            try
+            {
+                var usersDTO = await _userService.GetByEmail(email);
+                var userViewModel = _mapper.Map<UserViewModel>(usersDTO);
+
+                if (usersDTO == null)
+                {
+                    return Ok(new ResultViewModel
+                    {
+                        Sucess = true,
+                        Message = "Nenhum Usuário retornado",
+                        Data = null
+                    });
+                }
+
+                return Ok(new ResultViewModel
+                {
+                    Sucess = true,
+                    Message = "Usuário retornado",
+                    Data = usersDTO
+                });
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message, ex.Errors));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.AppErrorMessage());
+            }
+        }
+
+        [HttpGet]
+        [Route("search-by-email/{email}")]
+        public async Task<IActionResult> SearchByEmail(string email)
+        {
+            try
+            {
+                var usersDTO = await _userService.SearchByEmail(email);
+                var userViewModel = _mapper.Map<List<UserViewModel>>(usersDTO);
+
+                if (usersDTO.Count == 0)
+                {
+                    return Ok(new ResultViewModel
+                    {
+                        Sucess = true,
+                        Message = "Nenhum Usuário retornado",
+                        Data = null
+                    });
+                }
+
+                return Ok(new ResultViewModel
+                {
+                    Sucess = true,
+                    Message = "Usuários retornado",
+                    Data = usersDTO
+                });
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message, ex.Errors));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.AppErrorMessage());
+            }
+        }
+
+
+        [HttpGet]
+        [Route("search-by-name/{name}")]
+        public async Task<IActionResult> SearchByName(string name)
+        {
+            try
+            {
+                var usersDTO = await _userService.SearchByName(name);
+                var userViewModel = _mapper.Map<List<UserViewModel>>(usersDTO);
+
+                if (usersDTO.Count == 0)
+                {
+                    return Ok(new ResultViewModel
+                    {
+                        Sucess = true,
+                        Message = "Nenhum Usuário retornado",
+                        Data = null
+                    });
+                }
+
+                return Ok(new ResultViewModel
+                {
+                    Sucess = true,
+                    Message = "Usuários retornado",
+                    Data = usersDTO
+                });
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message, ex.Errors));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.AppErrorMessage());
+            }
+        }
 
     }
 }
