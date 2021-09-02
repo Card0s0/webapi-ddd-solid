@@ -1,10 +1,10 @@
 # WebApi - DDD - SOLID - Pattern - JWT - 
 Exemplo de WebApi utilizando:
-* DDD com as práticas do SOLID e Patterns
-* SQL Server
-* Autenticação JWT;
-* Testes Unitários;
-* LOGs Estruturados (Serilog+Elastic+Kibana);
+* [x] - DDD com as práticas do SOLID e Patterns - 
+* [x] - SQL Server
+* [] - Autenticação JWT;
+* [] - Testes Unitários;
+* [] - LOGs Estruturados (Serilog+Elastic+Kibana);
 
 ### Solution
 * [X] - Criação da Solution;
@@ -20,9 +20,10 @@ Exemplo de WebApi utilizando:
 * [x] - - Delete;
 * [x] - - GetAll;
 * [x] - - Get;
-* [ ] - - GetByEmail;
-* [ ] - - GetByName;
-* [ ] - - SearchByEmail;
+* [x] - - GetByEmail;
+* [x] - - GetByName;
+* [x] - - SearchByEmail;
+
 ### Domain:
 * [x] - Implementação do FluenteValidator;
 * [x] - Criação do Dominio Rico;
