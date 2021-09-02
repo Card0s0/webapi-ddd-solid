@@ -2,9 +2,9 @@
 Exemplo de WebApi utilizando:
 * [x] - DDD com as práticas do SOLID e Patterns - 
 * [x] - SQL Server
-* [] - Autenticação JWT;
-* [] - Testes Unitários;
-* [] - LOGs Estruturados (Serilog+Elastic+Kibana);
+* [ ] - Autenticação JWT;
+* [ ] - Testes Unitários;
+* [ ] - LOGs Estruturados (Serilog+Elastic+Kibana);
 
 ### Solution
 * [X] - Criação da Solution;
